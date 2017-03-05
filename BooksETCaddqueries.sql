@@ -1,4 +1,7 @@
 
+USE dbOregonLibrary
+GO
+
 insert into BORROWER (CardNo, Name, Address, Phone) values ('551541389', 'Paul Mcdonald', '18222 2nd Place', '9341840691');
 insert into BORROWER (CardNo, Name, Address, Phone) values ('68999626', 'Cynthia Duncan', '411 Debra Point', '8132978685');
 insert into BORROWER (CardNo, Name, Address, Phone) values ('43353768', 'Jacqueline Reed', '275 Dayton Lane', '7573879017');
@@ -17,13 +20,13 @@ insert into LIBRARY_BRANCH (BranchID, BranchName, Address) values (4, 'Western',
 insert into LIBRARY_BRANCH (BranchID, BranchName, Address) values (5, 'Eastern', '6566 Bultman Court');
 
 
---insert into PUBLISHER (PublisherName, Address, Phone) values ('Publication Study', '6367 Caliangt Drive', '5033622702');
---insert into PUBLISHER (PublisherName, Address, Phone) values ('Taverns Book', '7394 Donald Pass', '5038977043');
---insert into PUBLISHER (PublisherName, Address, Phone) values ('Macrocosm Publishing', '8 Drewry Court', '5032113666');
+insert into PUBLISHER (PublisherName, Address, Phone) values ('Publication Study', '6367 Caliangt Drive', '5033622702');
+insert into PUBLISHER (PublisherName, Address, Phone) values ('Taverns Book', '7394 Donald Pass', '5038977043');
+insert into PUBLISHER (PublisherName, Address, Phone) values ('Macrocosm Publishing', '8 Drewry Court', '5032113666');
 
 insert into BOOKS (BookID, Title, PublisherName) values (1, 'To Kill a Mockingbird', 'Publication Study');
 insert into BOOKS (BookID, Title, PublisherName) values (2, 'The Man Without Qualities', 'Publication Study');
-insert into BOOKS (BookID, Title, PublisherName) values (3, 'The Perks of Being a Wallflower', 'Publication Study');
+insert into BOOKS (BookID, Title, PublisherName) values (3, 'The Lost Tribe', 'Publication Study');
 insert into BOOKS (BookID, Title, PublisherName) values (4, 'One Hundred Years of Solitude', 'Publication Study');
 insert into BOOKS (BookID, Title, PublisherName) values (5, 'A Heartbreaking Work of Staggering Genius', 'Taverns Book');
 insert into BOOKS (BookID, Title, PublisherName) values (6, 'Another Bullshit Night in Suck City', 'Taverns Book');
@@ -43,31 +46,31 @@ insert into BOOKS (BookID, Title, PublisherName) values (19, 'Tinker, Tailor, So
 insert into BOOKS (BookID, Title, PublisherName) values (20, 'Catch-22', 'Macrocosm Publishing');
 
 
-insert into AUTHORS (BookID, AuthorName) values (1, 'Harper Lee');
-insert into AUTHORS (BookID, AuthorName) values (2, 'Robert Musil ');
-insert into AUTHORS (BookID, AuthorName) values (3, 'Stephen Chbosky');
-insert into AUTHORS (BookID, AuthorName) values (4, 'Gabriel Garcí­a Márquez');
-insert into AUTHORS (BookID, AuthorName) values (5, 'Dave Eggers');
-insert into AUTHORS (BookID, AuthorName) values (6, 'Nick Flynn');
-insert into AUTHORS (BookID, AuthorName) values (7, 'Anthony Burgess');
-insert into AUTHORS (BookID, AuthorName) values (8, 'Neil Gaiman');
-insert into AUTHORS (BookID, AuthorName) values (9, 'Stephen Colbert');
-insert into AUTHORS (BookID, AuthorName) values (10, 'John Kennedy Toole');
-insert into AUTHORS (BookID, AuthorName) values (11, 'Tony Perez-Giese');
-insert into AUTHORS (BookID, AuthorName) values (12, 'Aldous Huxley');
-insert into AUTHORS (BookID, AuthorName) values (13, 'Cormac McCarthy');
-insert into AUTHORS (BookID, AuthorName) values (14, 'Stephen King');
-insert into AUTHORS (BookID, AuthorName) values (15, 'Stephen King');
-insert into AUTHORS (BookID, AuthorName) values (16, 'John Steinbeck');
-insert into AUTHORS (BookID, AuthorName) values (17, 'David Markson');
-insert into AUTHORS (BookID, AuthorName) values (18, 'Dodie Smith');
-insert into AUTHORS (BookID, AuthorName) values (19, 'John le Carré');
-insert into AUTHORS (BookID, AuthorName) values (20, 'Joseph Heller');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (1, 'Harper Lee');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (2, 'Robert Musil ');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (3, 'Stephen Chbosky');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (4, 'Gabriel Garcí­a Márquez');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (5, 'Dave Eggers');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (6, 'Nick Flynn');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (7, 'Anthony Burgess');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (8, 'Neil Gaiman');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (9, 'Stephen Colbert');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (10, 'John Kennedy Toole');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (11, 'Tony Perez-Giese');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (12, 'Aldous Huxley');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (13, 'Cormac McCarthy');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (14, 'Stephen King');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (15, 'Stephen King');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (16, 'John Steinbeck');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (17, 'David Markson');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (18, 'Dodie Smith');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (19, 'John le Carré');
+insert into BOOK_AUTHORS (BookID, AuthorName) values (20, 'Joseph Heller');
 
 /* SELECT *
 FROM BOOKS
 SELECT * 
-FROM AUTHORS
+FROM BOOK_AUTHORS
 SELECT * 
 FROM PUBLISHERS
 SELECT * 
@@ -167,11 +170,11 @@ Where BookID = 3
 */
 
 
-SELECT * FROM BOOK_LOANS ORDER BY CardNo
+--SELECT * FROM BOOK_LOANS ORDER BY CardNo
 
 
 
-insert into BORROWER (CardNo, Name, Address, Phone) values ('369111170', 'Bill Harrison', '57639 Hintze Court', '8988272131');
+--insert into BORROWER (CardNo, Name, Address, Phone) values ('369111170', 'Bill Harrison', '57639 Hintze Court', '8988272131');
 
 
 

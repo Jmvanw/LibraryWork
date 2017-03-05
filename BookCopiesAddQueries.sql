@@ -1,3 +1,6 @@
+USE dbOregonLibrary
+GO
+
 insert into BOOK_COPIES (BookID, BranchID, Number_of_Copies) values (1, 1, 3);
 insert into BOOK_COPIES (BookID, BranchID, Number_of_Copies) values (2, 1, 4);
 insert into BOOK_COPIES (BookID, BranchID, Number_of_Copies) values (3, 1, 2);

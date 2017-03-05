@@ -1,5 +1,5 @@
---ALTER TABLE "BOOK_LOANS"
---ADD "DateDue" AS dateadd(m, 1, DateOut)
+USE dbOregonLibrary
+GO
 
 --insert into BOOK_LOANS (DateOut, BookID, BranchID, CardNo) values ('20160414', 3, 4, 52685343)
 
@@ -54,9 +54,10 @@ insert into BOOK_LOANS (BranchID, BookID, CardNo, DateOut) values
 (3, 13, '43353768', '20160726'),
 (5, 19, '33261224', '20160720'),
 (2, 5, '551541389', '20160716')
-
-
-
+GO
+ALTER TABLE "BOOK_LOANS"
+ADD "DateDue" AS dateadd(m, 1, DateOut)
+GO
 
 SELECT * FROM BOOK_LOANS
 
