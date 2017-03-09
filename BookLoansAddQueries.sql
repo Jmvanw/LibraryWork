@@ -1,7 +1,9 @@
+--USE FOURTH
+
 USE dbOregonLibrary
 GO
 
---insert into BOOK_LOANS (DateOut, BookID, BranchID, CardNo) values ('20160414', 3, 4, 52685343)
+insert into BOOK_LOANS (DateOut, BookID, BranchID, CardNo) values ('20160414', 3, 4, 52685343)
 
 insert into BOOK_LOANS (BranchID, BookID, CardNo, DateOut) values 
 (5, 16, '551541389', '20160725'),
