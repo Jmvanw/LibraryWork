@@ -1,6 +1,8 @@
 USE dbOregonLibrary
 GO
 
+
+
 --QUESTION 1. How many copies of the book titled The Lost Tribe are owned by the library branch whose name
 --is"Sharpstown"?
 -----------------
@@ -15,6 +17,16 @@ ON BC.BookID = Bk.BookID
 INNER JOIN LIBRARY_BRANCH AS LB
 ON BC.BranchID = LB.BranchID
 WHERE BC.BookID = 3 AND LB.BranchID = 1
+
+SELECT BOOKS.Title, BOOKS.PublisherName, LIBRARY_BRANCH.BranchName, BOOK_COPIES.Number_of_Copies
+FROM BOOK_COPIES
+INNER JOIN BOOKS
+ON BOOK_COPIES.BookID = BOOKS.BookID
+INNER JOIN LIBRARY_BRANCH
+ON BOOK_COPIES.BranchID = LIBRARY_BRANCH.BranchID
+WHERE BOOKS.Title = 'The Lost Tribe' AND LIBRARY_BRANCH.BranchName = 'Sharpstown'
+
+
 
 Search_TheLostTribeAtSharpstown
 */
@@ -33,6 +45,8 @@ ON BC.BookID = Bs.BookID
 INNER JOIN LIBRARY_BRANCH AS LB
 ON BC.BranchID = LB.BranchID
 WHERE BC.BookID = 3
+
+SELECT * FROM BOOK_COPIES
 
 Search_TheLostTribeAtAllLibraries
 */
@@ -55,12 +69,11 @@ Search_BorrowersWithNoBooksCheckedOut
 ---------------
 --QUESTION 4.For each book that is loaned out from the "Sharpstown" branch and whose DueDate is today,
 --retrieve the book title, the borrower's name, and the borrower's address. 
-/*
-CREATE PROC Search_SharpstownBooksDueToday
-AS
 
-DECLARE @today DATE
-SET @today = '2016-08-21'
+/*
+DROP PROC Search_SharpstownBooksDueToday
+CREATE PROC Search_SharpstownBooksDueToday @today DATE
+AS
 
 SELECT Bs.Title, Bo.Name, Bo.Address, LB.BranchName, BL.DateDue
 FROM BOOK_LOANS AS BL
