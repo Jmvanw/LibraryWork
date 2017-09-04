@@ -69,10 +69,10 @@ insert into BOOK_AUTHORS (BookID, AuthorName) values (18, 'Dodie Smith');
 insert into BOOK_AUTHORS (BookID, AuthorName) values (19, 'John le Carré');
 insert into BOOK_AUTHORS (BookID, AuthorName) values (20, 'Joseph Heller');
 
-GO
-
-USE dbOregonLibrary
-GO
+--GO
+--SELECT * FROM BOOK_AUTHORS
+--USE dbOregonLibrary
+--GO
 
 insert into BOOK_COPIES (BookID, BranchID, Number_of_Copies) values (1, 1, 3);
 insert into BOOK_COPIES (BookID, BranchID, Number_of_Copies) values (2, 1, 4);
